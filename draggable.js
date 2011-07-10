@@ -1,3 +1,14 @@
+/* 
+ * draggalbe.js
+ *
+ * Copyright 2011 Kazuya Hiruma.
+ * Licensed under the MIT License:
+ *
+ * http://css-eblog.com/
+ *
+ * @version 0.1
+ */
+
 (function(win, doc) {
   "use strict";
   var Draggable = function () {
