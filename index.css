@@ -1,0 +1,29 @@
+img {
+  vertical-align: top;
+}
+#viewer ,
+#viewer2 ,
+#viewer3 {
+    position: relative;
+    width: 300px; height: 200px;
+    margin: 50px;
+    overflow: hidden;
+    background-color: #000;
+}
+
+#img ,
+#img2 ,
+#img3 {
+    position: absolute;
+    left: 0; top: 0;
+    background-color: #c00;
+}
+#img {
+  width: 1000px;
+}
+#img2 {
+    width: 400px; height: 100px;
+}
+#img3 {
+    width: 200px; height: 100px;
+}
