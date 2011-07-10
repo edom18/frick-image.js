@@ -11,10 +11,10 @@
 
 (function(win, doc) {
   "use strict";
-  var Draggable = function () {
+  var FrickImage = function () {
     this.init.apply(this, arguments);
   };
-  Draggable.prototype = {
+  FrickImage.prototype = {
       target: null, container: null,
       deltaTop: 0, deltaBottom: 0,
       deltaLeft: 0, deltaRight: 0,
@@ -36,9 +36,9 @@
         }
 
         //bind event to drag target.
-        $(this.target).bind(Draggable.event.START, function (e) { self._dragStart(e); return false; });
-        $(document).bind(Draggable.event.MOVE, function (e) { self._dragging(e); });
-        $(document).bind(Draggable.event.END, function (e) { self._dragEnd(e); });
+        $(this.target).bind(FrickImage.event.START, function (e) { self._dragStart(e); return false; });
+        $(document).bind(FrickImage.event.MOVE, function (e) { self._dragging(e); });
+        $(document).bind(FrickImage.event.END, function (e) { self._dragEnd(e); });
 
         this.deltaLeft = opt.deltaLeft || this.deltaLeft;
         this.deltaRight = opt.deltaRight || this.deltaRight;
@@ -89,19 +89,19 @@
                   m = self.getCurrentTranslate(target),
                   now = (new Date).getTime(),
                   left, top;
-              if (Draggable.support.transform3d || Draggable.support.transform2d) {
+              if (FrickImage.support.transform3d || FrickImage.support.transform2d) {
                   left = m.left + (self.accX * self.mag);
                   top = m.top + (self.accY * self.mag);
                   if (css.webkitTransitionProperty) {
-                      css.webkitTransitionProperty = Draggable.ts.prop;
-                      css.webkitTransitionTimingFunction = Draggable.ts.timing;
-                      css.webkitTransitionDuration = Draggable.ts.time;
+                      css.webkitTransitionProperty = FrickImage.ts.prop;
+                      css.webkitTransitionTimingFunction = FrickImage.ts.timing;
+                      css.webkitTransitionDuration = FrickImage.ts.time;
                       css.webkitTransform = self.getTranslate(left, top);
                   }
                   else if (css.MozTransitionProperty) {
-                      css.MozTransitionProperty = Draggable.ts.prop;
-                      css.MozTransitionTimingFunction = Draggable.ts.timing;
-                      css.MozTransitionDuration = Draggable.ts.time;
+                      css.MozTransitionProperty = FrickImage.ts.prop;
+                      css.MozTransitionTimingFunction = FrickImage.ts.timing;
+                      css.MozTransitionDuration = FrickImage.ts.time;
                       css.MozTransform = self.getTranslate(left, top);
                   }
                   this.goalLeft = left;
@@ -148,14 +148,14 @@
       },
       setTranslate: function (x, y, just) {
           var css = this.target[0].style;
-          if (Draggable.support.transform3d) {
+          if (FrickImage.support.transform3d) {
               css.webkitTransform = this.getTranslate(x, y);
               if (just) {
                   css.webkitTransitionProperty = 'none';
                   css.webkitTransitionDuration = '0';
               }
           }
-          else if (Draggable.support.transform2d()) {
+          else if (FrickImage.support.transform2d()) {
               css.MozTransform = this.getTranslate(x, y);
               if (just) {
                   css.MozTransitionProperty = 'none';
@@ -260,14 +260,14 @@
           var style = target[0].style;
           width = (ownRect) ? target[0].scrollWidth : target.width();
           height = (ownRect) ? target[0].scrollHeight : target.height();
-          if (Draggable.support.transform3d) {
+          if (FrickImage.support.transform3d) {
               m = new WebKitCSSMatrix(style.webkitTransform);
               left = m.e;
               top = m.f;
               right = m.e + width;
               bottom = m.f + height;
           }
-          else if (Draggable.support.transform2d()) {
+          else if (FrickImage.support.transform2d()) {
               var t = window.getComputedStyle(target[0], null).MozTransform.match(/.*?([\-0-9.]*)px.*?([\-0-9.]*)px/);
               if (t) {
                   left = t[1] | 0;
@@ -303,25 +303,25 @@
           };
       },
       getTranslate: function (x, y) {
-          return (Draggable.support.transform3d) ? ['translate3d(', x, 'px,', y, 'px,', 0, ')'].join('') : ['translate(', x, 'px,', y, 'px)'].join('');
+          return (FrickImage.support.transform3d) ? ['translate3d(', x, 'px,', y, 'px,', 0, ')'].join('') : ['translate(', x, 'px,', y, 'px)'].join('');
       }
   };
 
-  Draggable.support = {
+  FrickImage.support = {
       transform3d: ('WebKitCSSMatrix' in window && 'm11' in new WebKitCSSMatrix()),
       transform2d: function () { return ('MozTransform' in doc.body.style) || ('webkitTransform' in window); },
       touch: ('ontouchstart' in window)
   };
-  Draggable.event = {
-    START: (Draggable.support.touch) ? 'touchstart' : 'mousedown',
-    MOVE: (Draggable.support.touch) ? 'touchmove' : 'mousemove',
-    END: (Draggable.support.touch) ? 'touchend' : 'mouseup'
+  FrickImage.event = {
+    START: (FrickImage.support.touch) ? 'touchstart' : 'mousedown',
+    MOVE: (FrickImage.support.touch) ? 'touchmove' : 'mousemove',
+    END: (FrickImage.support.touch) ? 'touchend' : 'mouseup'
   };
-  Draggable.ts = {
-      prop: (Draggable.support.transform3d) ? '-webkit-transform' : (Draggable.support.transform2d) ? '-moz-transform' : '',
+  FrickImage.ts = {
+      prop: (FrickImage.support.transform3d) ? '-webkit-transform' : (FrickImage.support.transform2d) ? '-moz-transform' : '',
       timing: 'cubic-bezier(0,0,0.25,1)',
       time: '500ms'
   };
-  win.Draggable = Draggable;
+  win.FrickImage = FrickImage;
 
 })(window, document);
