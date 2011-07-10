@@ -1,5 +1,5 @@
 /* 
- * draggalbe.js
+ * draggable.js
  *
  * Copyright 2011 Kazuya Hiruma.
  * Licensed under the MIT License:
