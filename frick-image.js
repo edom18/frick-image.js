@@ -1,6 +1,11 @@
 /* 
 <<<<<<< HEAD:frick-image.js
+<<<<<<< HEAD:frick-image.js
  * draggable.js
+=======
+ * frick-image.js
+ * @author Kazuya Hiruma
+>>>>>>> dev:frick-image.js
 =======
  * frick-image.js
  * @author Kazuya Hiruma
@@ -11,6 +16,7 @@
  *
  * http://css-eblog.com/
  *
+<<<<<<< HEAD:frick-image.js
 <<<<<<< HEAD:frick-image.js
  * @version 0.1
  */
@@ -32,6 +38,8 @@
       init: function (target, opt) {
         var self = this;
 =======
+=======
+>>>>>>> dev:frick-image.js
  * @version 0.2
  */
 
@@ -68,12 +76,16 @@
 
         var self = this;
 
+<<<<<<< HEAD:frick-image.js
+>>>>>>> dev:frick-image.js
+=======
 >>>>>>> dev:frick-image.js
         opt = opt || {};
 
         this.target = $(target).css({
             'position': 'absolute'
         });
+<<<<<<< HEAD:frick-image.js
 <<<<<<< HEAD:frick-image.js
         this.container = this.target.parent();
         if( this.target[0].offsetParent !== this.container[0] ) {
@@ -82,6 +94,8 @@
 
         //bind event to drag target.
 =======
+=======
+>>>>>>> dev:frick-image.js
 
         this.container = this.target.parent();
 
@@ -92,11 +106,15 @@
         /**
          * bind event to drag target.
          */
+<<<<<<< HEAD:frick-image.js
+>>>>>>> dev:frick-image.js
+=======
 >>>>>>> dev:frick-image.js
         $(this.target).bind(FrickImage.event.START, function (e) { self._dragStart(e); return false; });
         $(document).bind(FrickImage.event.MOVE, function (e) { self._dragging(e); });
         $(document).bind(FrickImage.event.END, function (e) { self._dragEnd(e); });
 
+<<<<<<< HEAD:frick-image.js
 <<<<<<< HEAD:frick-image.js
         this.deltaLeft = opt.deltaLeft || this.deltaLeft;
         this.deltaRight = opt.deltaRight || this.deltaRight;
@@ -209,6 +227,8 @@
           if (FrickImage.support.transform3d) {
               css.webkitTransform = this.getTranslate(x, y);
 =======
+=======
+>>>>>>> dev:frick-image.js
         $(this.target).find('a').bind('click', function (e) {
         
             if (self.mode === 'dragging') {
@@ -261,6 +281,9 @@
 
           if (FrickImage.support.transform3d) {
               css.webkitTransform = this.getTranslateProp(x, y);
+<<<<<<< HEAD:frick-image.js
+>>>>>>> dev:frick-image.js
+=======
 >>>>>>> dev:frick-image.js
               if (just) {
                   css.webkitTransitionProperty = 'none';
@@ -269,7 +292,11 @@
           }
           else if (FrickImage.support.transform2d()) {
 <<<<<<< HEAD:frick-image.js
+<<<<<<< HEAD:frick-image.js
               css.MozTransform = this.getTranslate(x, y);
+=======
+              css.MozTransform = this.getTranslateProp(x, y);
+>>>>>>> dev:frick-image.js
 =======
               css.MozTransform = this.getTranslateProp(x, y);
 >>>>>>> dev:frick-image.js
@@ -287,6 +314,10 @@
       },
       setTranslateX: function (x, just) {
 <<<<<<< HEAD:frick-image.js
+<<<<<<< HEAD:frick-image.js
+=======
+
+>>>>>>> dev:frick-image.js
 =======
 
 >>>>>>> dev:frick-image.js
@@ -294,6 +325,7 @@
           this.goalLeft = x;
       },
       setTranslateY: function (y, just) {
+<<<<<<< HEAD:frick-image.js
 <<<<<<< HEAD:frick-image.js
           this.setTranslate(this.goalLeft, y, just);
           this.goalTop = y;
@@ -382,6 +414,8 @@
           width = (ownRect) ? target[0].scrollWidth : target.width();
           height = (ownRect) ? target[0].scrollHeight : target.height();
 =======
+=======
+>>>>>>> dev:frick-image.js
 
           this.setTranslate(this.goalLeft, y, just);
           this.goalTop = y;
@@ -398,6 +432,9 @@
           width = (ownRect) ? target[0].scrollWidth : target.width();
           height = (ownRect) ? target[0].scrollHeight : target.height();
 
+<<<<<<< HEAD:frick-image.js
+>>>>>>> dev:frick-image.js
+=======
 >>>>>>> dev:frick-image.js
           if (FrickImage.support.transform3d) {
               m = new WebKitCSSMatrix(style.webkitTransform);
@@ -408,16 +445,22 @@
           }
           else if (FrickImage.support.transform2d()) {
 <<<<<<< HEAD:frick-image.js
+<<<<<<< HEAD:frick-image.js
               var t = window.getComputedStyle(target[0], null).MozTransform.match(/.*?([\-0-9.]*)px.*?([\-0-9.]*)px/);
               if (t) {
                   left = t[1] | 0;
                   top = t[2] | 0;
 =======
+=======
+>>>>>>> dev:frick-image.js
               t = window.getComputedStyle(target[0], null).MozTransform.match(/.*?([\-0-9.]*)px.*?([\-0-9.]*)px/);
 
               if (t) {
                   left = t[1] >> 0;
                   top = t[2] >> 0;
+<<<<<<< HEAD:frick-image.js
+>>>>>>> dev:frick-image.js
+=======
 >>>>>>> dev:frick-image.js
               } else {
                   left = 0;
@@ -450,12 +493,15 @@
           };
       },
 <<<<<<< HEAD:frick-image.js
+<<<<<<< HEAD:frick-image.js
       getTranslate: function (x, y) {
           return (FrickImage.support.transform3d) ? ['translate3d(', x, 'px,', y, 'px,', 0, ')'].join('') : ['translate(', x, 'px,', y, 'px)'].join('');
       }
   };
 
 =======
+=======
+>>>>>>> dev:frick-image.js
       getTranslateProp: function (x, y) {
 
           return (FrickImage.support.transform3d) ? ['translate3d(', x, 'px,', y, 'px,', 0, ')'].join('') : ['translate(', x, 'px,', y, 'px)'].join('');
@@ -688,6 +734,9 @@
   /**
    * Support transform
    */
+<<<<<<< HEAD:frick-image.js
+>>>>>>> dev:frick-image.js
+=======
 >>>>>>> dev:frick-image.js
   FrickImage.support = {
       transform3d: ('WebKitCSSMatrix' in window && 'm11' in new WebKitCSSMatrix()),
@@ -695,11 +744,17 @@
       touch: ('ontouchstart' in window)
   };
 <<<<<<< HEAD:frick-image.js
+<<<<<<< HEAD:frick-image.js
 =======
+=======
+>>>>>>> dev:frick-image.js
 
   /**
    * Touch or mouse events.
    */
+<<<<<<< HEAD:frick-image.js
+>>>>>>> dev:frick-image.js
+=======
 >>>>>>> dev:frick-image.js
   FrickImage.event = {
     START: (FrickImage.support.touch) ? 'touchstart' : 'mousedown',
@@ -707,11 +762,17 @@
     END: (FrickImage.support.touch) ? 'touchend' : 'mouseup'
   };
 <<<<<<< HEAD:frick-image.js
+<<<<<<< HEAD:frick-image.js
 =======
+=======
+>>>>>>> dev:frick-image.js
 
   /**
    * Create transform method name.
    */
+<<<<<<< HEAD:frick-image.js
+>>>>>>> dev:frick-image.js
+=======
 >>>>>>> dev:frick-image.js
   FrickImage.ts = {
       prop: (FrickImage.support.transform3d) ? '-webkit-transform' : (FrickImage.support.transform2d) ? '-moz-transform' : '',
@@ -719,11 +780,17 @@
       time: '500ms'
   };
 <<<<<<< HEAD:frick-image.js
+<<<<<<< HEAD:frick-image.js
 =======
+=======
+>>>>>>> dev:frick-image.js
 
   /**
    * Export
    */
+<<<<<<< HEAD:frick-image.js
+>>>>>>> dev:frick-image.js
+=======
 >>>>>>> dev:frick-image.js
   win.FrickImage = FrickImage;
 
